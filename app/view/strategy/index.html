@@ -1,0 +1,126 @@
+{% extends "../default.html" %}
+{% block content %}
+<section class="pbanner">
+  <figure>
+    <img src="/assets/img/21.jpg" alt="旅游攻略" />
+  </figure>
+</section>
+<section class="recommend" style="background-image: url(/assets/img/46.jpg);">
+  <div class="recommed_wapper inner">
+    <div class="snewstop recommen_title article-block">
+      <img src="/assets/images/title11.png" alt="">
+      <small>Line recommendation</small>
+    </div>
+    <div class="recommend_list">
+      <ul class="recommend_list_info recommend_list_top  article-block clearfix">
+        {% for xianluItem in xianlu %}
+        {% if loop.index == 1 %}
+        <li>
+          <a href="{{xianluItem.url}}">
+            <span>{{xianluItem.title}}</span>
+            <figure>
+              <img src="{{xianluItem.photo}}" alt="{{xianluItem.title}}" />
+            </figure>
+            <b>{{loop.index}}</b>
+          </a>
+        </li>
+        {% elif loop.index == 2 %}
+        <li class="recommend_list_down">
+          <a href="{{xianluItem.url}}">
+            <span>{{xianluItem.title}}</span>
+            <figure>
+              <img src="{{xianluItem.photo}}" alt="{{xianluItem.title}}" />
+            </figure>
+            <b>{{loop.index}}</b>
+          </a>
+        </li>
+        {% elif loop.index == 3 %}
+        <li>
+          <a href="{{xianluItem.url}}">
+            <span>{{xianluItem.title}}</span>
+            <figure>
+              <img src="{{xianluItem.photo}}" alt="{{xianluItem.title}}" />
+            </figure>
+            <b>{{loop.index}}</b>
+          </a>
+        </li>
+        {% elif loop.index == 4 %}
+        <li class="recommend_list_down recommend_list_f">
+          <a href="{{xianluItem.url}}">
+            <span>{{xianluItem.title}}</span>
+            <figure>
+              <img src="{{xianluItem.photo}}" alt="{{xianluItem.title}}" />
+            </figure>
+            <b>{{loop.index}}</b>
+          </a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{{xianluItem.url}}">
+            <span>{{xianluItem.title}}</span>
+            <figure>
+              <img src="{{xianluItem.photo}}" alt="{{xianluItem.title}}" />
+            </figure>
+            <b>{{loop.index}}</b>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="route clearfix">
+  <div class="route_item">
+    <a href="/strategy/20.html">
+      <figure>
+        <img src="/assets/img/48.png" alt="" />
+      </figure>
+      <div class="route_item_text  article-block">
+        <b class="iconfont">&#xe601;</b>
+        <span>自驾线路</span>
+      </div>
+    </a>
+  </div>
+  <div class="route_item route_item_two">
+    <a href="http://www.ctrip.com/" target="_blank">
+      <figure>
+        <img src="/assets/img/49.png" alt="" />
+      </figure>
+      <div class="route_item_text  article-block">
+        <b class="iconfont">&#xe64e;</b>
+        <span>大巴</span>
+      </div>
+    </a>
+  </div>
+</section>
+<section class="seeking">
+  <div class="seeling-wapper inner">
+    <div class="snewstop recommen_title article-block">
+      <img src="/assets/images/title12.png" alt="">
+      <small>Idle away in seeking pleasure</small>
+    </div>
+    <ul class="seeling_list  article-block clearfix">
+
+      {% for eatItem in eat %}
+      <li>
+        <a href="{{eatItem.url}}">
+          <figure>
+            <img src="{{eatItem.photo}}" alt="{{eatItem.title}}" />
+          </figure>
+          <div class="seeling_list_text">
+            <strong>{{eatItem.title}}</strong>
+            <p>{{eatItem.content}}<br></p>
+            <p>......</p>
+            <span>了解更多></span>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+
+
+    </ul>
+    <div class="more"><a href="/strategy/22.html">更多</a></div>
+  </div>
+</section>
+{% endblock %}

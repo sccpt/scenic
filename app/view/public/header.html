@@ -1,0 +1,50 @@
+<header class="header-box">
+  <section class="navbox">
+    <div class="headerwr clearfix">
+      <a class="logo" href="/">
+        <img src="{{header.logo}}" alt="{{header.title}}" />
+      </a>
+      <ul class="nav clearfix">
+        {% for navItem in header.nav %}
+        {% if navItem.active %}
+        <li class="active">
+          {% else %}
+        <li>
+          {% endif %}
+          <a href="{{navItem.url}}"><i></i><b>
+              <img src="/assets/images/nav{{loop.index}}.png"
+                alt="{{navItem.title}}" /></b><span>{{navItem.title}}</span></a>
+          {% if (navItem.id != 0) and (navItem.children) and (navItem.children.length > 0) %}
+          <div class="levalbox">
+            <ol class='levallist  clearfix'>
+              {% for cItem in navItem.children %}
+              <li class="navbtn{{loop.index}}"><a href='{{cItem.url}}' target="_self">{{cItem.title}}</a></li>
+              {% endfor %}
+            </ol>
+          </div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="menubtn">
+        <span></span>
+      </div>
+      <div class="navigation">
+        <ul class="navlist">
+          {% for navItemMobile in header.nav %}
+          <li>
+            <a href="{{navItemMobile.url}}">{{navItemMobile.title}}</a>
+            {% if (navItemMobile.id != 0) and (navItemMobile.children) and (navItemMobile.children.length > 0) %}
+            <ol class='menus'>
+              {% for cItemMobile in navItemMobile.children %}
+              <li><a href='{{cItemMobile.url}}' target="_self">{{cItemMobile.title}}</a></li>
+              {% endfor %}
+            </ol>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+</header>

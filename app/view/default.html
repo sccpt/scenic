@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>{{header.title}}</title>
+  <meta name="keywords" content="{{header.keywords}}">
+  <meta name="description" content="{{header.description}}">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="stylesheet" type="text/css" href="/assets/css/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+  <script src="/assets/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+	      <script type="text/javascript" src="/assets/js/css3-mediaqueries.js"></script>
+	    <![endif]-->
+</head>
+
+<body>
+  {% include "./public/header.html" %}
+  {% block content %}{% endblock %}
+  {% include "./public/footer.html" %}
+  <script src="/assets/js/animatext.min.js"></script>
+  <script src="/assets/js/plugin.js"></script>
+  <script src="/assets/js/page.js"></script>
+  <script>
+    $('.footerle b').animatext({
+      speed: 60,
+      effect: 'fadeInRight',
+      reverse: false,
+    });
+  </script>
+  <script src="/assets/js/index.js"></script>
+</body>
+
+</html>

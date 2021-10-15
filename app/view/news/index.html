@@ -1,0 +1,97 @@
+{% extends "../default.html" %}
+{% block content %}
+<section class="pbanner">
+  <figure>
+    <img src="/assets/img/21.jpg" alt="活动资讯" />
+  </figure>
+</section>
+<section class="scenic-news" style="background-image: url(/assets/img/35.jpg);">
+  <div class="snews inner clearfix">
+    <div class="snewsleft">
+      <div class="snewstop article-block">
+        <img src="images/title7.png" alt="" />
+        <small>Scenic news</small>
+      </div>
+      <div class='snewsdown'>
+        {% for scenicItem in scenic %}
+        {% if loop.index == 1 %}
+        <a href='{{scenicItem.url}}'> <strong></strong>
+          <p>{{scenicItem.title}}</p> <span>详情</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="snewsri">
+      <ul class="snewsli">
+        {% for scenicItem in scenic %}
+        {% if loop.index > 1 %}
+        <li class='clearfix'> <a href='{{scenicItem.url}}'>
+            <div class='snewtime'> <b>{{scenicItem.hot}}</b> <time>{{scenicItem.createdAt}}</time> </div>
+            <div class='snewstext'> <strong></strong>
+              <p>{{scenicItem.title}}</p>
+            </div>
+          </a> </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <div class="checknews"><a href="/news/14.html">查看更多 >></a></div>
+    </div>
+  </div>
+</section>
+<section class="activities-box" style="background-image: url(/assets/img/36.jpg);">
+  <div class="activitsmall">
+    Travel<br>
+    yunyang
+  </div>
+  <div class="activities inner">
+    <div class="activitistt article-block">
+      <img src="/assets/images/title8.png" alt="" />
+      <small>Preferential activities</small>
+    </div>
+    <ul class="activitys clearfix">
+
+    </ul>
+  </div>
+  <div class="mores1"><a href="/news/16.html">查看更多</a></div>
+</section>
+<section class="thematic-box" style="background-image: url(/assets/img/37.jpg);">
+  <div class="thematic inner">
+    <div class="thematop clearfix">
+      <div class="snewstop article-block">
+        <img src="/assets/images/title9.png" alt="">
+        <small>Scenic news</small>
+      </div>
+      <a href="/news/17.html" class="themahref">查看更多 >></a>
+    </div>
+    <ul class="thematicli clearfix">
+
+      {% for hdItem in hd %}
+      {% if loop.index == 2 or loop.index == 4 %}
+      <li class="thematictwo">
+        <a href='{{hdItem.url}}'>
+          <figure>
+            <img src="{{hdItem.photo}}" alt="{{hdItem.title}}" />
+          </figure>
+          <div class="thematicw">
+            <span>{{hdItem.title}}</span>
+          </div>
+        </a>
+      </li>
+      {% else %}
+      <li>
+        <a href='{{hdItem.url}}'>
+          <figure>
+            <img src="{{hdItem.photo}}" alt="{{hdItem.title}}" />
+          </figure>
+          <div class="thematicw">
+            <span>{{hdItem.title}}</span>
+          </div>
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

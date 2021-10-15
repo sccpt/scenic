@@ -1,0 +1,79 @@
+{% extends "../default.html" %}
+{% block content %}
+<section class="pbanner">
+  <figure>
+    <img src="/assets/img/21.jpg" alt="线路推荐" />
+  </figure>
+</section>
+<div class="iphone-fix">
+  <span>旅游攻略<b></b></span>
+  <div class='iphone-down clearfix'>
+    {% for menuItem in menu %}
+    <a href='{{menuItem.url}}' target="_self">{{menuItem.title}}</a>
+    {% endfor %}
+  </div>
+</div>
+<section class="container" style="background-image: url(/assets/img/23.png);">
+  <div class="containerwr inner clearfix">
+    <div class='menulist'>
+      <div class='menubgs'></div>
+      <div class='menutop'> <img src='/assets/images/title14.png' alt='旅游攻略' /> <small>Tourism strategy</small> </div>
+      <ul class='menu-leval'>
+        {% for menuItem in menu %}
+        {% if menuItem.active %}
+        <li class='active'><a href='{{menuItem.url}}' target="_self">{{menuItem.title}}</a></li>
+        {% else %}
+        <li><a href='{{menuItem.url}}' target="_self">{{menuItem.title}}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="contents">
+      <div class="positions clearfix">
+        <strong class="potitle">{{typeName}}</strong>
+        <div class="posite clearfix">
+          <a href="/">首页 </a><b>/</b><a href="/strategy">旅游攻略</a></a>
+        </div>
+      </div>
+      <div class="strategy">
+        <ul class="strategy_list">
+
+          {% for listItem in rows %}
+          <li class="clearfix">
+            <a href="{{listItem.url}}">
+              <figure>
+                <img src="{{listItem.photo}}" alt="{{listItem.title}}" />
+              </figure>
+              <div class="strategy_text">
+                <div class="strategy_text_w">
+                  <strong>{{listItem.title}}</strong>
+                  <p>{{listItem.content}}...
+                  </p>
+
+                  <span>了解详情 ></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="pages">
+          <div class="pages">
+            {% for pageItem in pages %}
+            {% if loop.first %}
+            <a href="{{pageItem.url}}" class="pageprev">上一页</a>
+            {% elif loop.last %}
+            <a href="{{pageItem.url}}" class="pageprev">下一页</a>
+            {% elif pageItem.active %}
+            <a href="{{pageItem.url}}" class="active">{{pageItem.num}}</a>
+            {% else %}
+            <a href="{{pageItem.url}}">{{pageItem.num}} </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

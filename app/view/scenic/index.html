@@ -1,0 +1,39 @@
+{% extends "../default.html" %}
+{% block content %}
+<section class="pbanner">
+  <figure>
+    <img src="assets/img/21.jpg" alt="体验项目" />
+  </figure>
+</section>
+<section class="project-boxs" style="background-image: url(assets/img/23.png);">
+  <div class="projectd inner">
+    <ul class="projectli clearfix">
+      {% for listItem in rows %}
+      <li>
+        <a href="{{listItem.url}}" target="_self">
+          <figure>
+            <img src="{{listItem.photo}}" alt="{{listItem.title}}" />
+          </figure>
+          <span>{{listItem.title}}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="pages">
+    <div class="pages">
+      {% for pageItem in pages %}
+      {% if loop.first %}
+      <a href="{{pageItem.url}}" class="pageprev">上一页</a>
+      {% elif loop.last %}
+      <a href="{{pageItem.url}}" class="pageprev">下一页</a>
+      {% elif pageItem.active %}
+      <a href="{{pageItem.url}}" class="active">{{pageItem.num}}</a>
+      {% else %}
+      <a href="{{pageItem.url}}">{{pageItem.num}} </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

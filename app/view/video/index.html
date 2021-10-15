@@ -1,0 +1,53 @@
+{% extends "../default.html" %}
+{% block content %}
+<section class="pbanner">
+  <figure>
+    <img src="/assets/img/22.jpg" alt="宣传视频" />
+  </figure>
+</section>
+<div class="iphone-fix">
+  <span>宣传视频<b></b></span>
+
+</div>
+<section class="container" style="background-image: url(/assets/img/23.png);">
+  <div class="containerwr inner clearfix">
+
+    <div class="contents contents1">
+      <div class="positions clearfix">
+        <strong class="potitle">宣传视频</strong>
+        <div class="posite clearfix">
+          <a href="/">首页 </a><b>/</b><a href="/video">宣传视频</a>
+        </div>
+      </div>
+      <div class="play">
+        <ul class="play_list clearfix">
+          {% for listItem in rows %}
+          <li>
+            <a itemprop="contentUrl" href="{{listItem.url}}">
+              <img src="{{listItem.photo}}" alt="{{listItem.title}}" />
+              <span>{{listItem.title}}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="pages">
+          <div class="pages">
+            {% for pageItem in pages %}
+            {% if loop.first %}
+            <a href="{{pageItem.url}}" class="pageprev">上一页</a>
+            {% elif loop.last %}
+            <a href="{{pageItem.url}}" class="pageprev">下一页</a>
+            {% elif pageItem.active %}
+            <a href="{{pageItem.url}}" class="active">{{pageItem.num}}</a>
+            {% else %}
+            <a href="{{pageItem.url}}">{{pageItem.num}} </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

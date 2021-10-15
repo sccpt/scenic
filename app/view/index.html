@@ -1,0 +1,263 @@
+{% extends "./default.html" %}
+{% block content %}
+<section class="banner-box">
+  <section class="banner clearfix">
+    <div class="item">
+      <figure>
+        <img src="assets/Uploadfiles/Picture/2020-4-9/2020491745387054.jpg" alt="智慧景区" />
+      </figure>
+      <div class="ptext">
+        <img class="font1" src="assets/images/font.png" alt="智慧景区" />
+        <span>国家地质公园 国家AAAAA级景区</span>
+        <p><img class="font2" src="assets/images/font1.png" /></p>
+      </div>
+    </div>
+
+
+    <div class="item">
+      <figure>
+        <img src="assets/Uploadfiles/Picture/2020-4-9/2020491745404414.jpg" alt="智慧景区" />
+      </figure>
+      <div class="ptext">
+
+
+
+
+        <img class="font1" src="assets/images/font.png" alt="智慧景区" />
+        <span>国家地质公园 国家AAAAA级景区</span>
+        <p><img class="font2" src="assets/images/font1.png" /></p>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="item">
+      <figure>
+        <img src="assets/Uploadfiles/Picture/2019-1-16/20191161753465498.jpg" alt="图片1" />
+      </figure>
+      <div class="ptext">
+
+
+
+
+        <img class="font1" src="assets/images/font.png" alt="图片1" />
+        <span>国家地质公园 国家AAAAA级景区</span>
+        <p><img class="font2" src="assets/images/font1.png" /></p>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+</section>
+<div class="vwrap">
+  <div class="videobtg"></div>
+  <div class="videobox">
+    <div id="videobox"></div>
+    <div class="close"><i></i></div>
+  </div>
+</div>
+<section class="feature-box commonbg" style="background-image: url(assets/images/feature1.jpg);">
+  <div class="feature inner">
+    <div class="titles article-block">
+      <img src="assets/images/title1.png" alt="特色景点" />
+      <p>国家5A景区·智慧景区</p>
+    </div>
+    <div class="feature-list article-block clearfix">
+      {% for scenicItem in scenic %}
+      {% if loop.index == 1 %}
+      <div class='featurein'> <a class='fearin' href='{{scenicItem.url}}'>
+          <figure> <img src='{{scenicItem.photo}}' height="384" alt='{{scenicItem.title}}' /><span>{{scenicItem.title}}</span>
+          </figure>
+          <div class='fearmark'> <span class='lace lace1'></span> <span class='lace lace2'></span> <span
+              class='lace lace3'></span> <span class='lace lace4'></span>
+            <div class='fearwr'> <b>{{scenicItem.title}}</b> </div>
+          </div>
+        </a> </div>
+      {% endif %}
+      {% endfor %}
+      {% for scenicItem in scenic %}
+      {% if loop.index == 2 %}
+      <div class='featurein featureinri'> <a class='fearin' href='{{scenicItem.url}}'>
+          <figure> <img src='{{scenicItem.photo}}' height="384" alt='{{scenicItem.title}}' /><span>{{scenicItem.title}}</span>
+          </figure>
+          <div class='fearmark'> <span class='lace lace1'></span> <span class='lace lace2'></span> <span
+              class='lace lace3'></span> <span class='lace lace4'></span>
+            <div class='fearwr'> <b>{{scenicItem.title}}</b> </div>
+          </div>
+        </a> </div>
+      {% endif %}
+      {% endfor %}
+      <div class='featli clearfix'>
+        <div class='featinwr clearfix'>
+          {% for scenicItem in scenic %}
+          {% if loop.index > 2 %}
+          <a class='fearin' href='{{scenicItem.url}}'>
+            <figure> <img src='{{scenicItem.photo}}' height="190" alt='{{scenicItem.title}}' /><span>{{scenicItem.title}}</span>
+            </figure>
+            <div class='fearmark'> <span class='lace lace1'></span> <span class='lace lace2'></span>
+              <span class='lace lace3'></span> <span class='lace lace4'></span>
+              <div class='fearwr'> <b>{{scenicItem.title}}</b> </div>
+            </div>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="more article-block"><a href="/scenic">更多</a></div>
+  </div>
+</section>
+<section class="project-box commonbg" style="background-image: url(assets/img/7.jpg);">
+  <div class="project inner">
+    <div class="titles article-block titles1">
+      <img src="assets/images/title2.png" alt="特色项目" />
+      <p>360度观景平台</p>
+    </div>
+
+    <div class="project__list clearfix">
+      {% for projectItem in project %}
+      <div class="project__item">
+        <a href="{{projectItem.url}}">
+          <figure><img src="{{projectItem.photo}}" alt="{{projectItem.title}}"></figure>
+          <span>{{projectItem.title}}</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  <div class="mores1"><a href="/project">更多项目</a></div>
+</section>
+<section class="news-box commonbg" style="background-image: url(assets/img/15.jpg);">
+  <div class="news inner">
+    <div class="titles titles1 article-block">
+      <img src="assets/images/title4.png" alt="活动资讯" />
+      <p>景区新闻·公告公示</p>
+    </div>
+    <div class="newswr clearfix">
+      <div class="newsbann article-block">
+
+        {% for sliderItem in slider %}
+        <div class="nitem">
+          <figure>
+            <a href="{{sliderItem.url}}" target="_blank">
+              <img src="{{sliderItem.photo}}" alt="{{sliderItem.title}}" /><span>> {{sliderItem.title}}</span></a>
+          </figure>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="newsfix article-block">
+        <div class="newswd">
+          <div class='newsinfo'>
+            {% for newsItem in news %}
+            {% if loop.index == 1 %}
+            <a href='{{newsItem.url}}'> <time>{{newsItem.createdAt}}</time>
+              <h4>{{newsItem.title}}</h4> <span>了解详情 ></span>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <ul class='newsli'>
+            {% for newsItem in news %}
+            {% if loop.index > 1 %}
+            <li class='clearfix'> <a href='{{newsItem.url}}'>
+                <span>{{newsItem.title}}</span><time>{{newsItem.createdAt}}</time> </a> </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="follow-box">
+  <div class="follow inner clearfix">
+    <div class="followle">
+      <strong>关注我们的官方微信，了解更多及时信息</strong>
+    </div>
+    <div class="allows">
+      <img class="allowbg" src="assets/images/apple.png" alt="官方微信" />
+      <div class="allowtext">
+        <img src="assets/img/erweima.png" alt="官方微信" />
+        <span>扫描二维码 <br> 关注智慧景区</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="servicebox inner">
+  <ul class="serviceli clearfix">
+
+
+    <li class="service1">
+      <a href="/service/details/38.html">
+        <b class="iconfont">&#xe65e;</b>
+        <span>票务服务</span>
+      </a>
+    </li>
+
+
+    <li class="service2">
+      <a href="/service/details/44.html">
+        <b class="iconfont">&#xe600;</b>
+        <span>游客须知</span>
+      </a>
+    </li>
+
+
+    <li class="service3">
+      <a href="/service/details/40.html">
+        <b class="iconfont">&#xe60e;</b>
+        <span>食宿推荐</span>
+      </a>
+    </li>
+
+
+    <li class="service4">
+      <a href="/service/details/39.html">
+        <b class="iconfont">&#xe6f9;</b>
+        <span>旅行社服务</span>
+      </a>
+    </li>
+
+
+    <li class="service5">
+      <a href="/strategy/21.html">
+        <b class="iconfont">&#xe668;</b>
+        <span>如何到达</span>
+      </a>
+    </li>
+
+
+    <li class="service6">
+      <a href="/service/details/41.html">
+        <b class="iconfont">&#xe650;</b>
+        <span>周边旅游</span>
+      </a>
+    </li>
+
+
+    <li class="service7">
+      <a href="/service/details/43.html">
+        <b class="iconfont">&#xe654;</b>
+        <span>旅游常识</span>
+      </a>
+    </li>
+
+
+    <li class="service8">
+      <a href="/service/details/42.html">
+        <b class="iconfont">&#xe60a;</b>
+        <span>应急求助</span>
+      </a>
+    </li>
+
+  </ul>
+</section>
+<script src="assets/js/video/player.mini.js"></script>
+{% endblock %}
